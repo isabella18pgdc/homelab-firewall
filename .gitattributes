@@ -1,0 +1,8 @@
+# Guarda e mantém tudo com fim de linha LF, inclusive no Windows.
+# Evita os avisos "LF will be replaced by CRLF" a cada commit.
+* text=auto eol=lf
+
+# Arquivos binários (prints) nunca são convertidos
+*.png binary
+*.jpg binary
+*.jpeg binary
