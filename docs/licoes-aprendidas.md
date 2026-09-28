@@ -1,13 +1,9 @@
 # Lições aprendidas
 
-Antes de chegar nas VMs, tropecei em duas coisas.
+O primeiro ping do Ubuntu para o gateway deu 100% de perda. O IP da OPT1 estava certo. O problema é que interface nova no OPNsense não vem com regra nenhuma, e sem regra ele bloqueia tudo.
 
-## O VirtualBox sumido
+Para sair do lugar, criei uma regra Pass com tudo em any na OPT1. Funcionou, mas deixava a LAB-LAN sair para qualquer lugar. Depois troquei por regras só para DNS, HTTP, HTTPS e ping ao firewall. A regra de teste eu desativei em vez de apagar. Se precisar testar de novo, é só reativar.
 
-Instalei o VirtualBox e, na primeira vez que fui abrir, ele não aparecia na lista. Parecia que a instalação não tinha funcionado. Fechei, abri de novo, e lá estava ele. Antes de pensar em reinstalar, vale tentar isso.
+Com as regras novas, o ping para 8.8.8.8 parou de responder. Isso é o esperado, porque o ICMP só está liberado para o próprio firewall. Por isso testei os dois lados: o que devia passar e o que devia ser bloqueado.
 
-## O `gh` não vem com o Windows
-
-Eu queria criar o repositório direto do terminal, mas o GitHub CLI não vem instalado por padrão. Tive que instalar à parte.
-
-E mesmo depois de instalado, o terminal não reconhecia o comando `gh`. Ele não entrou no PATH. Acabei chamando pelo caminho completo, `C:\Program Files\GitHub CLI\gh.exe`.
+Tirei um snapshot da Ubuntu já atualizada e com a rede funcionando, o `ubuntu-atualizada-rede-ok`. Se algo der errado nas próximas mudanças, volto para esse ponto em vez de reinstalar.
