@@ -40,3 +40,5 @@ O ping para o gateway 10.10.10.1 continuou funcionando, porque o ICMP está libe
 O ping para 8.8.8.8 deu 100% de perda. É o resultado que eu queria: ICMP para fora não está liberado.
 
 ![Ping para 8.8.8.8 com 100% de perda](../screenshots/15-teste-bloqueio.png)
+
+Depois de aplicar as regras, tirei um snapshot da pfSense chamado opnsense-regras-ok.
