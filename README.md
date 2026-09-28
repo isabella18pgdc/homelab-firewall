@@ -8,6 +8,10 @@ A VM do firewall se chama pfSense no VirtualBox, mas o sistema instalado nela é
 
 O OPNsense tem três placas de rede. A WAN sai pelo NAT do VirtualBox. A LAN fica numa rede host-only, que é por onde eu acesso a interface web pelo navegador do Windows. A OPT1 fica na rede interna LAB-LAN, junto com o Ubuntu.
 
+![Topologia do lab](screenshots/topologia.png)
+
+*Topologia do lab*
+
 | Interface | Rede no VirtualBox | IP |
 |---|---|---|
 | WAN em0 | NAT | 10.0.2.15/24 |
