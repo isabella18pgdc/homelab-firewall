@@ -2,7 +2,7 @@
 
 Instalei o Ubuntu Server 26.04.1 LTS na VM `UbuntuServer`. O hostname é `ubuntu-lab`, e a única placa de rede (`enp0s3`) fica na LAB-LAN com IP fixo 10.10.10.50/24 e gateway 10.10.10.1, que é a OPT1 do OPNsense.
 
-TODO: onde configurei o IP fixo (na tela de rede do instalador ou depois, no netplan).
+Configurei o IP fixo 10.10.10.50/24, com gateway 10.10.10.1, na tela de rede do instalador.
 
 ## Instalação
 
