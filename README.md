@@ -8,27 +8,12 @@ A VM do firewall se chama pfSense no VirtualBox, mas o sistema instalado nela é
 
 O OPNsense tem três placas de rede. A WAN sai pelo NAT do VirtualBox. A LAN fica numa rede host-only, que é por onde eu acesso a interface web pelo navegador do Windows. A OPT1 fica na rede interna LAB-LAN, junto com o Ubuntu.
 
-```
-                 Internet
-                     |
-               NAT do VirtualBox
-                     |
-          em0 (WAN)  10.0.2.15/24
-     +-------------------------------+
-     |  OPNsense 26.7                |
-     |  firewall-lab.localdomain     |
-     +-------------------------------+
-          em1 (LAN)  192.168.56.10/24  ---- host-only ---- Windows (192.168.56.1)
-          em2 (OPT1) 10.10.10.1/24
-                     |
-             LAB-LAN (rede interna)
-                     |
-          enp0s3     10.10.10.50/24
-     +-------------------------------+
-     |  Ubuntu Server 26.04.1 LTS    |
-     |  ubuntu-lab                   |
-     +-------------------------------+
-```
+| Interface | Rede no VirtualBox | IP |
+|---|---|---|
+| WAN em0 | NAT | 10.0.2.15/24 |
+| LAN em1 | host-only | 192.168.56.10/24 |
+| OPT1 em2 | rede interna LAB-LAN | 10.10.10.1/24 |
+| Ubuntu enp0s3 | LAB-LAN | 10.10.10.50/24 |
 
 ![Console do OPNsense com as interfaces](screenshots/09-console-firewall-interfaces.png)
 
