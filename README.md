@@ -2,7 +2,7 @@
 
 Lab de firewall que montei no VirtualBox, no meu Windows. Uma VM roda o OPNsense 26.7 e fica entre a internet e uma rede interna. Nessa rede interna tem um Ubuntu Server que só sai para fora passando pelo firewall, e só pelas portas que eu liberei.
 
-A VM do firewall se chama pfSense no VirtualBox porque comecei o projeto com o pfSense em mente. O sistema instalado nela é o OPNsense.
+A VM do firewall se chama pfSense no VirtualBox, mas o sistema instalado nela é o OPNsense.
 
 ## Topologia
 
