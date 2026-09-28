@@ -1,26 +1,43 @@
 # homelab-firewall
 
-Meu laboratório de firewall em casa, montado no VirtualBox. Uma VM com pfSense fica no meio fazendo o papel de firewall. Atrás dela, um Ubuntu Server que só consegue sair para a internet passando pelo pfSense.
+Lab de firewall que montei no VirtualBox, no meu Windows. Uma VM roda o OPNsense 26.7 e fica entre a internet e uma rede interna. Nessa rede interna tem um Ubuntu Server que só sai para fora passando pelo firewall, e só pelas portas que eu liberei.
 
-## Como está montado
+A VM do firewall se chama pfSense no VirtualBox porque comecei o projeto com o pfSense em mente. O sistema instalado nela é o OPNsense.
 
-O pfSense tem duas placas de rede. A primeira está em NAT e é a WAN, a saída para fora. A segunda fica numa rede interna do VirtualBox que chamei de `LAB-LAN`.
+## Topologia
 
-O Ubuntu Server tem uma placa só, ligada na `LAB-LAN`. Não tem outro caminho.
+O OPNsense tem três placas de rede. A WAN sai pelo NAT do VirtualBox. A LAN fica numa rede host-only, que é por onde eu acesso a interface web pelo navegador do Windows. A OPT1 fica na rede interna LAB-LAN, junto com o Ubuntu.
 
 ```
-Internet ── NAT ── [ pfSense ] ── LAB-LAN ── [ UbuntuServer ]
+                 Internet
+                     |
+               NAT do VirtualBox
+                     |
+          em0 (WAN)  10.0.2.15/24
+     +-------------------------------+
+     |  OPNsense 26.7                |
+     |  firewall-lab.localdomain     |
+     +-------------------------------+
+          em1 (LAN)  192.168.56.10/24  ---- host-only ---- Windows (192.168.56.1)
+          em2 (OPT1) 10.10.10.1/24
+                     |
+             LAB-LAN (rede interna)
+                     |
+          enp0s3     10.10.10.50/24
+     +-------------------------------+
+     |  Ubuntu Server 26.04.1 LTS    |
+     |  ubuntu-lab                   |
+     +-------------------------------+
 ```
 
-| VM | RAM | Disco | Rede |
-|---|---|---|---|
-| pfSense | 2 GB | 20 GB | NAT + LAB-LAN |
-| UbuntuServer | 2 GB | 25 GB | LAB-LAN |
+![Console do OPNsense com as interfaces](screenshots/09-console-firewall-interfaces.png)
 
-## Onde parei
+## Documentação
 
-As duas VMs já existem. Criei com um script em PowerShell, o [create-vms.ps1](configs/create-vms.ps1), em vez de clicar tudo na interface. Elas ainda estão desligadas e sem sistema. O próximo passo é anexar as ISOs e instalar o pfSense e o Ubuntu.
+- [Criando as VMs e instalando o OPNsense](docs/criando-as-vms.md)
+- [Instalando o Ubuntu Server](docs/ubuntu-server.md)
+- [Ligando o Ubuntu na LAB-LAN](docs/rede-lab-lan.md)
+- [Trocando a regra liberada por regras restritas](docs/regras-restritas.md)
+- [Lições aprendidas](docs/licoes-aprendidas.md)
 
-## O que tem em cada pasta
-
-Em `configs/` ficam os scripts e, mais pra frente, as configurações que eu exportar do pfSense. Em `docs/` estão minhas anotações: [como criei as VMs](docs/criando-as-vms.md) e [o que deu errado no caminho](docs/licoes-aprendidas.md). A pasta `screenshots/` ainda está vazia. Vou colocando os prints conforme avanço.
+O script que criou as VMs está em [configs/create-vms.ps1](configs/create-vms.ps1). Ele mostra a montagem inicial, antes das mudanças que conto em criando-as-vms.md.
