@@ -10,15 +10,18 @@ Antes, a OPT1 tinha só a regra de teste.
 
 Todas são Pass, direção In, IPv4, na OPT1.
 
+Criei as regras na interface web do OPNsense, em Firewall > Rules > OPT1.
+
 | Descrição | Protocolo | Destino | Porta |
 |---|---|---|---|
 | Permitir DNS | TCP/UDP | any | 53 |
 | Permitir HTTP | TCP | any | 80 |
 | Permitir HTTPS | TCP | any | 443 |
 | Permitir ping ao firewall | ICMP | OPT1 address | |
-| Liberar LAB-LAN (teste) | any | any | any (desativada) |
 
-A regra de teste eu desativei, não apaguei. Depois cliquei em Apply.
+Na regra do ping, deixei o destino como any no começo. Assim o ping para qualquer lugar passaria, então troquei por OPT1 address.
+
+A regra de teste (Liberar LAB-LAN) eu desativei, não apaguei. Depois cliquei em Apply.
 
 ![Regras da OPT1 depois de aplicadas](../screenshots/14-regras-depois.png)
 
