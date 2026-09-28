@@ -1,6 +1,6 @@
 # Criando as VMs
 
-Não quis criar as máquinas clicando na interface do VirtualBox. Se eu precisar apagar tudo e recomeçar, prefiro rodar um comando só. Por isso fiz o [create-vms.ps1](../configs/create-vms.ps1), que usa o `VBoxManage`, a ferramenta de linha de comando que vem junto com o VirtualBox.
+Não quis criar as máquinas clicando na interface do VirtualBox. Se eu precisar apagar tudo e recomeçar, prefiro rodar um comando só. Por isso existe o [create-vms.ps1](../configs/create-vms.ps1), que usa o `VBoxManage`, a ferramenta de linha de comando que vem junto com o VirtualBox.
 
 O script mostra a montagem inicial. Depois mudei algumas coisas direto no VirtualBox, e conto isso mais abaixo.
 
@@ -12,7 +12,7 @@ Os discos são dinâmicos. Ocupam pouco no começo e vão crescendo conforme uso
 
 Na rede, a VM do firewall ganha duas placas. A primeira em NAT, a segunda na rede interna `LAB-LAN`. O Ubuntu fica só na `LAB-LAN`.
 
-Escolhi o modelo de placa Intel PRO/1000 (`82540EM`). O firewall é baseado em FreeBSD e reconhece essa placa sem driver extra.
+O script usa o modelo de placa Intel PRO/1000 (`82540EM`). O firewall é baseado em FreeBSD e reconhece essa placa sem driver extra.
 
 Cada VM também ganha um drive de DVD vazio, com boot pelo DVD primeiro. Assim é só anexar a ISO e ligar. Se eu rodar o script de novo com as VMs já criadas, ele avisa e pula em vez de quebrar.
 
