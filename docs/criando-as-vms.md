@@ -54,7 +54,7 @@ No fim, a VM do firewall ficou com NAT na placa 1, host-only na placa 2 e `LAB-L
 
 ## Instalando o OPNsense
 
-TODO: passos da instalação do OPNsense a partir da ISO e de como atribuí as interfaces e os IPs.
+Instalei o OPNsense a partir da ISO `OPNsense-26.7-dvd-amd64.iso`. Nessa hora a VM só tinha duas placas, então a WAN (em0) e a LAN (em1) vieram primeiro. A terceira placa entrou depois da instalação, e só então atribuí a OPT1 (em2).
 
 Depois de instalado, o hostname ficou `firewall-lab.localdomain`. A WAN (em0) pega IP por DHCP do NAT do VirtualBox, e recebeu 10.0.2.15/24. A LAN (em1) ficou com 192.168.56.10/24 e um servidor DHCP de 192.168.56.100 a 192.168.56.200. A OPT1 (em2) ficou com 10.10.10.1/24, e é o gateway da `LAB-LAN`.
 
