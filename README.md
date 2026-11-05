@@ -18,13 +18,9 @@ Documentei cada etapa, incluindo o que deu errado no caminho, porque quero que e
 
 <!-- TODO: salvar os prints na pasta assets/ e trocar os nomes abaixo pelos nomes reais dos arquivos -->
 
-| Painel do OPNsense | Interfaces configuradas |
-|---|---|
-| ![Painel do OPNsense](assets/opnsense-dashboard.png) | ![Interfaces](assets/opnsense-interfaces.png) |
-
-| Regras de firewall | Ubuntu Server na LAB-LAN |
-|---|---|
-| ![Regras de firewall](assets/regras-firewall.png) | ![Ubuntu Server](assets/ubuntu-server.png) |
+| Interfaces configuradas | Regras de firewall | Ubuntu Server na LAB-LAN |
+|---|---|---|
+| ![Interfaces](screenshots/09-console-firewall-interfaces.png) | ![Regras de firewall](screenshots/14-regras-depois.png) | ![Ubuntu Server](screenshots/04-login-ip.png) |
 
 ## Topologia
 
@@ -101,9 +97,5 @@ A ideia é usar este lab como base pra um projeto novo de segurança por semana,
 
 ## Autora
 
-**Isabella Pinheiro Galuski da Cruz**
-Estudante de Análise e Desenvolvimento de Sistemas na UFPR, estagiária de Infraestrutura de TIC e certificada CompTIA Security+.
-
-- LinkedIn: [linkedin.com/in/SEU-PERFIL](https://www.linkedin.com/in/SEU-PERFIL)
-- GitHub: [@isabella18pgdc](https://github.com/isabella18pgdc)
+Feito por **Isabella Pinheiro Galuski da Cruz** · [LinkedIn](https://www.linkedin.com/in/isabella-pinheiro-7b8b572b8)
 
