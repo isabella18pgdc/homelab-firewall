@@ -16,8 +16,6 @@ Documentei cada etapa, incluindo o que deu errado no caminho, porque quero que e
 
 ## Prints
 
-<!-- TODO: salvar os prints na pasta assets/ e trocar os nomes abaixo pelos nomes reais dos arquivos -->
-
 | Interfaces configuradas | Regras de firewall | Ubuntu Server na LAB-LAN |
 |---|---|---|
 | ![Interfaces](screenshots/09-console-firewall-interfaces.png) | ![Regras de firewall](screenshots/14-regras-depois.png) | ![Ubuntu Server](screenshots/04-login-ip.png) |
@@ -30,8 +28,6 @@ flowchart LR
     HOST["Meu PC (Windows)<br/>acesso à interface web"] -- "Host-only<br/>192.168.56.0/24" --- FW
     FW["OPNsense<br/>firewall / roteador"] -- "Rede interna<br/>LAB-LAN" --- UB["Ubuntu Server"]
 ```
-
-<!-- TODO: conferir se a WAN está mesmo em NAT e preencher o IP da LAB-LAN -->
 
 | Interface | Placa no VirtualBox | Rede | Endereço |
 |---|---|---|---|
@@ -81,13 +77,13 @@ flowchart LR
 8. Criar as regras de firewall e testar a comunicação entre as redes.
 
 O detalhe de cada etapa, com prints, está na pasta [`docs/`](docs/).
-<!-- TODO: conferir se a pasta da documentação se chama mesmo docs/ -->
 
 ## O que aprendi
 
 - No começo deixei a LAN do firewall em "Rede Interna" e não conseguia acessar as VMs pelo meu PC. Foi aí que entendi na prática a diferença entre rede interna (só as VMs se enxergam) e host-only (o host também participa da rede).
 - Pensei em deixar o Ubuntu Server na mesma rede host-only do OPNsense, mas isso deixaria o servidor exposto direto ao meu PC. Criei uma rede interna separada só pra ele, assim tudo que chega no servidor passa obrigatoriamente pelo firewall.
-<!-- TODO: completar com o que mais você aprendeu, nas suas palavras -->
+- A instalação do OPNsense não subia depois de instalada. Descobri que o ZFS precisava de mais memória do que os 2 GB da VM: aumentei para 3 GB, troquei para UFS e ainda tive que ativar o "Use Host I/O Cache" no controlador SATA do VirtualBox.
+- Ter tirado um snapshot antes da instalação me poupou de recriar a VM do zero: quando o boot quebrou, só voltei para aquele ponto e tentei de novo.
 
 ## Próximos passos
 
