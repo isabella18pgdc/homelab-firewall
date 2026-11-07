@@ -37,7 +37,7 @@ flowchart LR
 |---|---|---|---|
 | WAN (em0) | Adaptador 1 | NAT | DHCP do VirtualBox |
 | LAN (em1) | Adaptador 2 | Somente-Anfitrião (host-only) | 192.168.56.10/24, com DHCP de .100 a .200 |
-| OPT1 (em2) | Adaptador 3 | Rede interna `LAB-LAN` | PREENCHER |
+| OPT1 (em2) | Adaptador 3 | Rede interna `LAB-LAN` | 10.10.10.1/24 |
 
 ## Tecnologias utilizadas
 
@@ -75,8 +75,8 @@ flowchart LR
 2. Criar a VM do firewall com três placas de rede: Adaptador 1 em NAT, Adaptador 2 em Somente-Anfitrião e Adaptador 3 em Rede Interna com o nome `LAB-LAN`.
 3. Instalar o OPNsense e atribuir as interfaces (em0 = WAN, em1 = LAN, em2 = OPT1).
 4. Configurar a LAN com IP estático `192.168.56.10/24` e ativar o DHCP na faixa `.100` a `.200`.
-5. Configurar a interface OPT1 com o IP da LAB-LAN.
-6. Criar a VM do Ubuntu Server com a placa de rede em Rede Interna `LAB-LAN` e instalar o sistema.
+5. Configurar a interface OPT1 com IP estático `10.10.10.1/24`.
+6. Criar a VM do Ubuntu Server com a placa de rede em Rede Interna `LAB-LAN`, instalar o sistema e configurar o IP `10.10.10.50/24` com gateway `10.10.10.1`.
 7. No navegador do PC, acessar `https://192.168.56.10` para entrar no painel do OPNsense.
 8. Criar as regras de firewall e testar a comunicação entre as redes.
 
